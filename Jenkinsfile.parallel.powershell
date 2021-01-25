@@ -5,7 +5,7 @@ pipeline {
             parallel {
                 stage('Test On Windows') {
                     agent {
-                        label "windows"
+                        label "windows10"
                     }
                     steps {
                         powershell '''
