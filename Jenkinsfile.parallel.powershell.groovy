@@ -10,7 +10,7 @@ pipeline {
                     steps {
                         powershell '''
                             hostname
-                            pwd
+                            write-host $PSVersionTable.PSVersion
                         '''
                     }
                     post {
