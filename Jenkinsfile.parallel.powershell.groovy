@@ -35,6 +35,8 @@ pipeline {
                 stage('Run another job') {
                     steps {
                         build job: 'Job_With_Parameters-pipeline', 
+                            parameters: [[$class: 'StringParameterValue', name: 'String', value: 'Run another job']], wait: true
+                        build job: 'Job_With_Parameters-pipeline', 
                             parameters: [
                                 String[ name: 'String', value: 'Run another job']
                             ],
