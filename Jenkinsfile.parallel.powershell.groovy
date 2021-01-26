@@ -11,6 +11,7 @@ pipeline {
                         powershell '''
                             hostname
                             write-host $PSVersionTable.PSVersion
+                            Start-Sleep -Seconds 5
                         '''
                     }
                     post {
