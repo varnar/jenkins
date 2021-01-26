@@ -40,7 +40,7 @@ pipeline {
                             parameters:[
                                 string(name: 'String', value: 'testing' ),
                                 string(name: 'SleepTime', value: '60')
-                                //[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
+                                ///[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
                             ],
                             wait: true
                     }
