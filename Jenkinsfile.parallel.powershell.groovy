@@ -37,10 +37,11 @@ pipeline {
                         build job: 'Job_With_Parameters-pipeline', 
                             parameters: [[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait false']], wait: false
                         build job: 'Job_With_Parameters-pipeline', 
-                            parameters: [
-                                [$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
+                            parameters:[
+                                string(name: 'String', value: 'testing' )
+                                //[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
                             ],
-                            wait: false
+                            wait: true
                     }
                 }                
             }
