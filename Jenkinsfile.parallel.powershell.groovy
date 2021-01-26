@@ -21,7 +21,7 @@ pipeline {
                         }
                     }
                 }
-                stage('Test On Windows 2')
+                stage('Test On Windows 2') {
                     agent {
                         label "windows10"
                     }
@@ -30,6 +30,7 @@ pipeline {
                             write-host "Stage2"
                         '''
                     }
+                }   
             }
         }
     }
