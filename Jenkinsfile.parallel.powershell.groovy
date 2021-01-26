@@ -21,6 +21,15 @@ pipeline {
                         }
                     }
                 }
+                stage('Test On Windows 2')
+                    agent {
+                        label "windows10"
+                    }
+                    steps {
+                        powershell '''
+                            write-host "Stage2"
+                        '''
+                    }
             }
         }
     }
