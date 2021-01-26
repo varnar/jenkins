@@ -10,6 +10,7 @@ pipeline {
                     steps {
                         powershell '''
                             hostname
+                            pwd
                         '''
                     }
                     post {
