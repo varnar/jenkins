@@ -55,8 +55,7 @@ pipeline {
                     ], 
                     wait: false
 
-               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { 
-                   steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { 
                         script {
                             RunBuild1 = build job: 'Job_With_Parameters-pipeline', 
                             parameters:[
@@ -67,7 +66,6 @@ pipeline {
                             propagate: true,
                             wait: true 
                         }
-                   }
                }
                println "${RunBuild1.toString()}"
             }
