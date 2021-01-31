@@ -56,6 +56,7 @@ pipeline {
                     wait: false
 
                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { 
+                   steps {
                    RunBuild1 = build job: 'Job_With_Parameters-pipeline', 
                     parameters:[
                         string(name: 'String', value: 'testing' ),
@@ -63,6 +64,7 @@ pipeline {
                         ///[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
                     ],
                     wait: true 
+                   }
                }
                println "${RunBuild1.getResult}"
             }
