@@ -56,7 +56,7 @@ pipeline {
                     wait: false
 
                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { 
-                   build job: 'Job_With_Parameters-pipeline', 
+                   def RunBuild1 = build job: 'Job_With_Parameters-pipeline', 
                     parameters:[
                         string(name: 'String', value: 'testing' ),
                         string(name: 'SleepTime', value: "${SleepTime}")
@@ -64,6 +64,7 @@ pipeline {
                     ],
                     wait: true 
                }
+               println "${RunBuild1.getResult}"
             }
         }                
         stage('Run another job1') {
