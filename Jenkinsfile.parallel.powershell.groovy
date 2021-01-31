@@ -48,11 +48,15 @@ pipeline {
             steps {
                 echo "${SleepTime}"
                 build job: 'Job_With_Parameters-pipeline', 
-                    parameters: [[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait false']], wait: true
+                    parameters: [
+                        [$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait false']
+                    ], 
+                    wait: false
+
                 build job: 'Job_With_Parameters-pipeline', 
                     parameters:[
                         string(name: 'String', value: 'testing' ),
-                        string(name: 'SleepTime', value: '10')
+                        string(name: 'SleepTime', value: "${SleepTime}")
                         ///[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
                     ],
                     wait: true 
@@ -63,11 +67,15 @@ pipeline {
             steps {
                 echo "${SleepTime1}"
                 build job: 'Job_With_Parameters-pipeline', 
-                    parameters: [[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait false']], wait: true
+                    parameters: [
+                        [$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait false']
+                    ], 
+                    wait: false
+
                 build job: 'Job_With_Parameters-pipeline', 
                     parameters:[
-                        string(name: 'String', value: 'testing' ),
-                        string(name: 'SleepTime', value: '15')
+                        string(name: 'String', value: 'testing:wait true' ),
+                        string(name: 'SleepTime', value: "${SleepTime1}")
                         ///[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
                     ],
                     wait: true
