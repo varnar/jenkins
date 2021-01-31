@@ -33,33 +33,33 @@ pipeline {
                         '''
                     }
                 }  
-            } 
-            stage('Run another job') {
-                steps {
-                    build job: 'Job_With_Parameters-pipeline', 
-                        parameters: [[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait false']], wait: true
-                    build job: 'Job_With_Parameters-pipeline', 
-                        parameters:[
-                            string(name: 'String', value: 'testing' ),
-                            string(name: 'SleepTime', value: '10')
-                            ///[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
-                        ],
-                        wait: true
-                }
-            }                
-            stage('Run another job1') {
-                steps {
-                    build job: 'Job_With_Parameters-pipeline', 
-                        parameters: [[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait false']], wait: true
-                    build job: 'Job_With_Parameters-pipeline', 
-                        parameters:[
-                            string(name: 'String', value: 'testing' ),
-                            string(name: 'SleepTime', value: '15')
-                            ///[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
-                        ],
-                        wait: true
-                }
-            }          
-        }
+            }
+        } 
+        stage('Run another job') {
+            steps {
+                build job: 'Job_With_Parameters-pipeline', 
+                    parameters: [[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait false']], wait: true
+                build job: 'Job_With_Parameters-pipeline', 
+                    parameters:[
+                        string(name: 'String', value: 'testing' ),
+                        string(name: 'SleepTime', value: '10')
+                        ///[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
+                    ],
+                    wait: true
+            }
+        }                
+        stage('Run another job1') {
+            steps {
+                build job: 'Job_With_Parameters-pipeline', 
+                    parameters: [[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait false']], wait: true
+                build job: 'Job_With_Parameters-pipeline', 
+                    parameters:[
+                        string(name: 'String', value: 'testing' ),
+                        string(name: 'SleepTime', value: '15')
+                        ///[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
+                    ],
+                    wait: true
+            }
+        }          
     }
 }
