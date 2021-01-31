@@ -11,14 +11,15 @@ pipeline {
                         label "windows10"
                     }
                     steps {
-                        powershell '''
-                            hostname
-                            write-host $PSVersionTable.PSVersion
-                            Start-Sleep -Seconds 10
-                        '''
                         script {
-                            SleepTime = 10
+                            SleepTime = powershell (returnStdout: true, script: '''
+                                hostname
+                                write-host $PSVersionTable.PSVersion
+                                Start-Sleep -Seconds 10
+                                write-host 10
+                            '''
                         }
+                        println SleepTime
                     }
                     post {
                         always {
