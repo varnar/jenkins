@@ -57,16 +57,19 @@ pipeline {
 
                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { 
                    steps {
-                   RunBuild1 = build job: 'Job_With_Parameters-pipeline', 
-                    parameters:[
-                        string(name: 'String', value: 'testing' ),
-                        string(name: 'SleepTime', value: "${SleepTime}")
-                        ///[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
-                    ],
-                    wait: true 
+                        script {
+                            RunBuild1 = build job: 'Job_With_Parameters-pipeline', 
+                            parameters:[
+                                string(name: 'String', value: 'testing' ),
+                                string(name: 'SleepTime', value: "${SleepTime}")
+                                ///[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
+                            ],
+                            propagate: true,
+                            wait: true 
+                        }
                    }
                }
-               println "${RunBuild1.getResult}"
+               println "${RunBuild1.toString()}"
             }
         }                
         stage('Run another job1') {
