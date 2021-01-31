@@ -13,7 +13,7 @@ pipeline {
                             write-host $PSVersionTable.PSVersion
                             Start-Sleep -Seconds 10
                         '''
-                        $SleepTime = 10
+                        SleepTime = 10
                     }
                     post {
                         always {
@@ -32,7 +32,7 @@ pipeline {
                             write-host "Stage2"
                             Start-Sleep -Seconds 20
                         '''
-                        $SleepTime1 = 20
+                        SleepTime1 = 20
                     }
                 }  
             }
