@@ -48,7 +48,8 @@ pipeline {
                         string(name: 'SleepTime', value: '10')
                         ///[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
                     ],
-                    wait: true
+                    wait: true 
+                    
             }
         }                
         stage('Run another job1') {
