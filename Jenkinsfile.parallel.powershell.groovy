@@ -40,7 +40,7 @@ pipeline {
         stage('Run another job') {
             steps {
                 script {
-                    echo $SleepTime
+                    echo "${SleepTime}"
                 }
                 build job: 'Job_With_Parameters-pipeline', 
                     parameters: [[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait false']], wait: true
@@ -56,7 +56,7 @@ pipeline {
         stage('Run another job1') {
             steps {
                 script {
-                    echo $SleepTime1
+                    echo "${SleepTime1}"
                 }
                 build job: 'Job_With_Parameters-pipeline', 
                     parameters: [[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait false']], wait: true
