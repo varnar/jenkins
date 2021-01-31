@@ -55,14 +55,15 @@ pipeline {
                     ], 
                     wait: false
 
-                build job: 'Job_With_Parameters-pipeline', 
+               catthError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { 
+                   build job: 'Job_With_Parameters-pipeline', 
                     parameters:[
                         string(name: 'String', value: 'testing' ),
                         string(name: 'SleepTime', value: "${SleepTime}")
                         ///[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
                     ],
                     wait: true 
-
+               }
             }
         }                
         stage('Run another job1') {
