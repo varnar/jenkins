@@ -12,6 +12,7 @@ pipeline {
                             hostname
                             write-host $PSVersionTable.PSVersion
                             Start-Sleep -Seconds 10
+                            $SleepTime = 10
                         '''
                     }
                     post {
@@ -30,6 +31,7 @@ pipeline {
                         powershell '''
                             write-host "Stage2"
                             Start-Sleep -Seconds 20
+                            $SleepTime1 = 20
                         '''
                     }
                 }  
@@ -37,6 +39,7 @@ pipeline {
         } 
         stage('Run another job') {
             steps {
+                echo $SleepTime
                 build job: 'Job_With_Parameters-pipeline', 
                     parameters: [[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait false']], wait: true
                 build job: 'Job_With_Parameters-pipeline', 
@@ -50,6 +53,7 @@ pipeline {
         }                
         stage('Run another job1') {
             steps {
+                echo $SleepTime1
                 build job: 'Job_With_Parameters-pipeline', 
                     parameters: [[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait false']], wait: true
                 build job: 'Job_With_Parameters-pipeline', 
