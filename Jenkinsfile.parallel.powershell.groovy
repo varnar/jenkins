@@ -17,7 +17,7 @@ pipeline {
                                 write-host $PSVersionTable.PSVersion
                                 Start-Sleep -Seconds 10
                                 write-host 10
-                            '''
+                            ''' )
                         }
                         println SleepTime
                     }
