@@ -67,7 +67,7 @@ pipeline {
                             wait: true 
                         }
                }
-               println "${RunBuild1.toString()}"
+               echo "${RunBuild1.toString()}"
             }
         }                
         stage('Run another job1') {
