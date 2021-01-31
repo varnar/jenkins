@@ -21,7 +21,6 @@ pipeline {
                             ''' )
                         }
                         println SleepTime
-                        
                     }
                     post {
                         always {
