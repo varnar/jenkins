@@ -20,7 +20,7 @@ pipeline {
                                 
                             ''' )
                         }
-                        println SleepTime
+                        println SleepTime.toString()
                     }
                     post {
                         always {
