@@ -63,9 +63,8 @@ pipeline {
                                 string(name: 'SleepTime', value: "${SleepTime}")
                                 ///[$class: 'StringParameterValue', name: 'String', value: 'Run another job: wait true']                              
                             ],
-                            propagate: true,
                             wait: true 
-                            echo "${RunBuild1.toString()}"
+                            //echo "${RunBuild1.toString()}"
                         }
                }
             }
