@@ -14,8 +14,8 @@ pipeline {
                         script {
                             SleepTime = powershell (returnStdout: true, script: '''
                                 write-host 10
-                                hostname
-                                write-host $PSVersionTable.PSVersion
+                                #hostname
+                                #write-host $PSVersionTable.PSVersion
                                 Start-Sleep -Seconds 10
                                 
                             ''' )
