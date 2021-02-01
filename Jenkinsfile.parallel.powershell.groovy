@@ -55,7 +55,7 @@ pipeline {
                     ], 
                     wait: false
 
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { 
+                catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') { 
                         script {
                             RunBuild1 = build job: 'Job_With_Parameters-pipeline', 
                             parameters:[
